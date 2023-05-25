@@ -206,7 +206,7 @@ bitflags! {
         /// The window is currently in a tiled layout and the bottom edge is
         /// considered to be adjacent to another part of the tiling grid.
         const TILED_BOTTOM = 0b0000_0000_1000_0000;
-        /// The window has any of the mentioned tiled bits set.
+        /// An alias for all tiled bits set.
         const TILED = Self::TILED_TOP.bits() | Self::TILED_LEFT.bits() | Self::TILED_RIGHT.bits() | Self::TILED_BOTTOM.bits();
     }
 }
