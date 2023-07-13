@@ -229,7 +229,11 @@ bitflags! {
         /// considered to be adjacent to another part of the tiling grid.
         const TILED_BOTTOM = 0b0000_0000_1000_0000;
         /// An alias for all tiled bits set.
-        const TILED = Self::TILED_TOP.bits() | Self::TILED_LEFT.bits() | Self::TILED_RIGHT.bits() | Self::TILED_BOTTOM.bits();
+        const TILED        = Self::TILED_TOP.bits() | Self::TILED_LEFT.bits() | Self::TILED_RIGHT.bits() | Self::TILED_BOTTOM.bits();
+        /// The surface is currently not ordinarily being repainted; for example
+        /// because its content is occluded by another window, or its outputs are
+        /// switched off due to screen locking.
+        const SUSPENDED    = 0b0000_0001_0000_0000;
     }
 }
 
