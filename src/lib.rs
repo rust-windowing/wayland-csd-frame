@@ -20,6 +20,7 @@
 //! [`sctk-adwaita`]: https://github.com/PolyMeilex/sctk-adwaita
 
 use std::num::NonZeroU32;
+use std::time::Duration;
 
 use bitflags::bitflags;
 use wayland_backend::client::ObjectId;
@@ -32,24 +33,35 @@ pub trait DecorationsFrame: Sized {
     /// Emulate click on the decorations.
     ///
     /// The `click` is a variant of click to use, see [`FrameClick`] for more
-    /// information.
+    /// information. `timestamp` is the time when event happened.
     ///
     /// The return value is a [`FrameAction`] you should apply, this action
     /// could be ignored.
     ///
     /// The location of the click is the one passed to
     /// [`Self::click_point_moved`].
-    fn on_click(&mut self, click: FrameClick, pressed: bool) -> Option<FrameAction>;
+    fn on_click(
+        &mut self,
+        timestamp: Duration,
+        click: FrameClick,
+        pressed: bool,
+    ) -> Option<FrameAction>;
 
     /// Emulate pointer moved event on the decorations frame.
     ///
     /// The `x` and `y` are location in the surface local coordinates relative
-    /// to the `surface`.
+    /// to the `surface`. `timestamp` is the time when event happened.
     ///
     /// The return value is the new cursor icon you should apply to provide
     /// better visual feedback for the user. However, you might want to
     /// ignore it, if you're using touch events to drive the movements.
-    fn click_point_moved(&mut self, surface_id: &ObjectId, x: f64, y: f64) -> Option<CursorIcon>;
+    fn click_point_moved(
+        &mut self,
+        timestamp: Duration,
+        surface_id: &ObjectId,
+        x: f64,
+        y: f64,
+    ) -> Option<CursorIcon>;
 
     /// All clicks left the decorations.
     ///
