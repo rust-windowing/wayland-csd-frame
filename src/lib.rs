@@ -93,6 +93,12 @@ pub trait DecorationsFrame: Sized {
     /// Panics when resizing the hidden frame.
     fn resize(&mut self, width: NonZeroU32, height: NonZeroU32);
 
+    /// Set the scaling of the decorations frame.
+    ///
+    /// If the decorations frame is not supporting fractional scaling it'll
+    /// `ceil` the scaling factor.
+    fn set_scaling_factor(&mut self, scale_factor: f64);
+
     /// Return the coordinates of the top-left corner of the borders relative to
     /// the content.
     ///
