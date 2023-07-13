@@ -135,8 +135,12 @@ pub trait DecorationsFrame: Sized {
 
     /// Draw the decorations frame.
     ///
+    /// Return `true` when the main surface must be redrawn as well. This
+    /// usually happens when `sync` is being set on the internal subsurfaces and
+    /// they've changed their size.
+    ///
     /// The user of the frame **must** commit the base surface afterwards.
-    fn draw(&mut self);
+    fn draw(&mut self) -> bool;
 
     /// Set the frames title.
     fn set_title(&mut self, title: impl Into<String>);
