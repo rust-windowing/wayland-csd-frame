@@ -14,4 +14,4 @@ rust-version = "1.64.0"
 [dependencies]
 bitflags = "2.0"
 cursor-icon = "1.0.0"
-wayland-backend = { version = "0.1.1", default-features = false }
+wayland-backend = { version = "0.2.0", default-features = false }
