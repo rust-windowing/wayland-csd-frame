@@ -22,8 +22,14 @@
 use std::num::NonZeroU32;
 use std::time::Duration;
 
+#[cfg(not(any(feature = "wayland-backend_0_1", feature = "wayland-backend_0_2")))]
+compile_error!("Ether wayland-backend_0_1 or wayland-backend_0_2 feature must be enabled");
+
 use bitflags::bitflags;
-use wayland_backend::client::ObjectId;
+#[cfg(feature = "wayland-backend_0_1")]
+use wayland_backend_0_1::client::ObjectId;
+#[cfg(feature = "wayland-backend_0_2")]
+use wayland_backend_0_2::client::ObjectId;
 
 #[doc(inline)]
 pub use cursor_icon::{CursorIcon, ParseError as CursorIconParseError};
