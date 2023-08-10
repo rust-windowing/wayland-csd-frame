@@ -1,6 +1,6 @@
 [package]
 name = "wayland-csd-frame"
-version = "0.2.1"
+version = "0.2.2"
 authors = ["Kirill Chibisov <contact@kchibisov.com>"]
 repository = "https://github.com/rust-windowing/wayland-csd-frame"
 description = "Common trait and types for wayland CSD interop"
