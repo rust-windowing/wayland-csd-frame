@@ -6,7 +6,7 @@
 #![deny(missing_debug_implementations)]
 #![deny(missing_docs)]
 #![forbid(unsafe_code)]
-#![cfg_attr(feature = "cargo-clippy", deny(warnings))]
+#![cfg_attr(clippy, deny(warnings))]
 #![cfg_attr(docsrs, feature(doc_auto_cfg))]
 
 //! The interface for wayland client side decorations (CSD).
