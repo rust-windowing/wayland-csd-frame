@@ -9,7 +9,6 @@
 #![cfg_attr(clippy, deny(warnings))]
 #![cfg_attr(docsrs, feature(doc_cfg))]
 
-
 //! The interface for wayland client side decorations (CSD).
 //!
 //! The crate is intended to be used by libraries providing client
